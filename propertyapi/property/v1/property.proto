@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package propertyv1;
+
+option go_package = "github.com/kadimetla/grpcsample/gen/proto/propertyapi/property/v1;propertyv1";
+
+message Address {
+string line1 = 1;
+string line2 = 2;
+string city = 3;
+string state = 4;
+string lat = 5;
+string lng = 6;
+}
+
+message Property {
+ string name = 1;
+ Address address = 2;
+}
+
+message PropertyRequest {
+ Property property = 1; 
+}
+
+message PropertyResponse {
+ Property property = 1; 
+}
+
+service PropertyService {
+ rpc SearchProperty(PropertyRequest) returns (PropertyResponse) {}
+}
